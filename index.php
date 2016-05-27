@@ -15,7 +15,7 @@ $app->post('/callback', function (Request $request) use ($app) {
         }
 
         $resContent = $msg['content'];
-        $resContent['text'] = 'ｶﾞｯ';
+        $resContent['text'] = 'ねばぎば！';
 
         $requestOptions = [
             'body' => json_encode([
