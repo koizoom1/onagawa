@@ -33,7 +33,7 @@ $app->post('/callback', function (Request $request) use ($app) {
         $resContent = $msg['content'];
         //$resContent['text'] = 'ねばぎば！';
         
-        $resContent['text'] = $last;
+        $resContent['text'] = count ( $result );
 
 $resContent['contentType'] = '1';
 
