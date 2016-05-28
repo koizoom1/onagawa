@@ -27,7 +27,7 @@ $app->post('/callback', function (Request $request) use ($app) {
 
         //パターンマッチ＆抽出
         preg_match_all($pattern, $html, $result);
-        $last = array_count_values ( $result ) - 1;
+        $last = count ( $result ) - 1;
         $full = str_replace('=s190', '',$result[$last]);
 
         $resContent = $msg['content'];
