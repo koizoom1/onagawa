@@ -35,9 +35,11 @@ $app->post('/callback', function (Request $request) use ($app) {
         
         $resContent['text'] = $full;
 
-        $resContent['contentType'] = '2';
-        $resContent['originalContentUrl'] = $full;
-        $resContent['previewImageUrl'] = $result[$last];
+$resContent['contentType'] = '1';
+
+        //$resContent['contentType'] = '2';
+        //$resContent['originalContentUrl'] = $full;
+        //$resContent['previewImageUrl'] = $result[$last];
 
         $requestOptions = [
             'body' => json_encode([
