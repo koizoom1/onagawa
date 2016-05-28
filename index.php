@@ -31,11 +31,11 @@ $app->post('/callback', function (Request $request) use ($app) {
         $resContent = $msg['content'];
         //$resContent['text'] = 'ねばぎば！';
         
-        $resContent['text'] = $result;
+        $resContent['text'] = $full;
 
-        $resContent['contentType'] = '2';
-        $resContent['originalContentUrl'] = $full;
-        $resContent['previewImageUrl'] = $result[0];
+        $resContent['contentType'] = '1';
+        //$resContent['originalContentUrl'] = $full;
+        //$resContent['previewImageUrl'] = $result[0];
 
         $requestOptions = [
             'body' => json_encode([
