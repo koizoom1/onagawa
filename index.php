@@ -27,13 +27,13 @@ $app->post('/callback', function (Request $request) use ($app) {
 
         //パターンマッチ＆抽出
         preg_match_all($pattern, $html, $result);
-        $last = count ( $result ) - 1;
+        $last = count ( $result[0] ) - 1;
         $full = str_replace('=s190', '',$result[$last]);
 
         $resContent = $msg['content'];
         //$resContent['text'] = 'ねばぎば！';
         
-        $resContent['text'] = count ( $result[0] );
+        $resContent['text'] = $full;
 
 $resContent['contentType'] = '1';
 
