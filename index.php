@@ -26,7 +26,7 @@ $app->post('/callback', function (Request $request) use ($app) {
         $pattern= '/'.preg_quote('https://lh','/').'[0-9]'.preg_quote('.googleusercontent.com/','/').'[0-9a-zA-Z_]+=s190/';
 
         //パターンマッチ＆抽出
-        preg_match($pattern, $html, $result);
+        preg_match_all($pattern, $html, $result);
         $last = array_count_values ( $result ) - 1;
         $full = str_replace('=s190', '',$result[$last]);
 
