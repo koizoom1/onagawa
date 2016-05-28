@@ -19,7 +19,7 @@ $app->post('/callback', function (Request $request) use ($app) {
         }
 
         $url = 'https://drive.google.com/folderview?id=0B2v2JSLLU2UZUmd3TFVfUERETnc&usp=sharing'; // 対象のURL又は対象ファイルのパス
-        $html = get_file_contents($url); // HTMLを取得
+        $html = file_get_contents($url); // HTMLを取得
 
         //パターン
         $pattern= '/https:(.*)googleusercontent(.*)=/';
