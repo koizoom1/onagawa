@@ -26,7 +26,7 @@ $app->post('/callback', function (Request $request) use ($app) {
 
         //パターンマッチ＆抽出
         preg_match($pattern, $html, $result);
-        $full = preg_replace($result[0], '=s190', '');
+        $full = str_replace('=s190', '',$result[0]);
 
         $resContent = $msg['content'];
         //$resContent['text'] = 'ねばぎば！';
