@@ -10,12 +10,26 @@ $app->post('/callback', function (Request $request) use ($app) {
 
     $body = json_decode($request->getContent(), true);
     foreach ($body['result'] as $msg) {
-        if (!preg_match('/(ぬるぽ|ヌルポ|ﾇﾙﾎﾟ|nullpo)/i', $msg['content']['text'])) {
+        //if (!preg_match('/(ぬるぽ|ヌルポ|ﾇﾙﾎﾟ|nullpo)/i', $msg['content']['text'])) {
+        //    continue;
+        //}
+
+        if (!preg_match('/(画像)/i', $msg['content']['text'])) {
             continue;
         }
 
+        $url = 'https://drive.google.com/folderview?id=0B2v2JSLLU2UZUmd3TFVfUERETnc&usp=sharing'; // 対象のURL又は対象ファイルのパス
+        $html = get_file_contents($url); // HTMLを取得
+
+        //パターン
+        $pattern= '/https:(.*)googleusercontent(.*)=/';
+
+        //パターンマッチ＆抽出
+        preg_match($pattern, $html, $result);
+
         $resContent = $msg['content'];
-        $resContent['text'] = 'ねばぎば！';
+        //$resContent['text'] = 'ねばぎば！';
+        $resContent['text'] = $result;
 
         $requestOptions = [
             'body' => json_encode([
