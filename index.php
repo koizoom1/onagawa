@@ -26,10 +26,16 @@ $app->post('/callback', function (Request $request) use ($app) {
 
         //パターンマッチ＆抽出
         preg_match($pattern, $html, $result);
+        $full = preg_replace($result[0], '=s190', '');
 
         $resContent = $msg['content'];
         //$resContent['text'] = 'ねばぎば！';
+        
         $resContent['text'] = $result;
+
+        $resContent['contentType'] = '2';
+        $resContent['originalContentUrl'] = $full;
+        $resContent['previewImageUrl'] = $result[0];
 
         $requestOptions = [
             'body' => json_encode([
