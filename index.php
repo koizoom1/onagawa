@@ -18,7 +18,8 @@ $app->post('/callback', function (Request $request) use ($app) {
             continue;
         }
 
-        $url = 'https://drive.google.com/folderview?id=0B2v2JSLLU2UZUmd3TFVfUERETnc&usp=sharing'; // 対象のURL又は対象ファイルのパス
+        //$url = 'https://drive.google.com/folderview?id=0B2v2JSLLU2UZUmd3TFVfUERETnc&usp=sharing'; // 対象のURL又は対象ファイルのパス
+        $url = 'https://drive.google.com/folderview?id=0B5MNuOuBR3BbN011ZmFhSGhWeXM&usp=sharing'; // 対象のURL又は対象ファイルのパス
         $html = file_get_contents($url); // HTMLを取得
 
         //パターン
